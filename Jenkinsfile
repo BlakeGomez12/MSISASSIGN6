@@ -1,7 +1,23 @@
 pipeline {
-   stage('Build in Docker') {
-    steps {
-        bat 'docker run --rm python:3.13.2-alpine3.21 python --version'
+  agent any
+
+  stages {
+    stage('Build') {
+      steps {
+        echo 'This is Build Stage'
+      }
     }
-}
+
+    stage('Test') {
+      steps {
+        echo 'This is Test Stage'
+      }
+    }
+
+    stage('Release') {
+      steps {
+        echo 'This is Release Stage'
+      }
+    }
+  }
 }
